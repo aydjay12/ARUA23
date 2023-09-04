@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARUA 2023</title>
+    <link rel="icon" href="Images/unilag_icon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Rajdhani", sans-serif;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: white;
+      }
+
+      :root {
+        --primary--color: rgb(214, 180, 26);
+        --primary--text--color: rgb(67, 55, 1);
+      }
+
+      .head {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .header {
+        font-size: 1em;
+        letter-spacing: 0.5em;
+        margin: auto;
+        margin-bottom: 1em;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .header button {
+        padding: 1em;
+        border: 2px solid black;
+        border-radius: 1.2em 0 1.2em 0;
+        color: black;
+        font-weight: 700;
+        background: white;
+        width: 100%;
+        cursor: pointer;
+      }
+      .header button:hover {
+        background: var(--primary--color);
+        border-color: white;
+        transition: 0.3s;
+        color: white;
+      }
+      .header img {
+        width: 20%;
+      }
+      .logo-img {
+        display: flex;
+        align-items: center;
+        width: 20%;
+      }
+      #unilag-logo {
+        width: 20%;
+      }
+      #arua-logo {
+        width: 100%;
+      }
+
+      .main_container {
+        padding: 0.5em;
+      }
+
+      .video,
+      .previous_videos,
+      .articles {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+      }
+
+      .event_schedule {
+        display: grid;
+        grid-template-columns: 1fr;
+        background: white;
+        overflow: scroll;
+      }
+
+      .comments {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .photo_gallery {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .previous_videos,
+      .articles {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 15px;
+      }
+
+      .video_head {
+        font-size: 1em;
+        letter-spacing: 1em;
+        margin: auto;
+        margin-bottom: 0.5em;
+      }
+
+      .video_content {
+        display: flex;
+      }
+
+      .video_content .content h2 {
+        font-size: 1em;
+      }
+
+      .video_content .content p {
+        font-size: 0.9em;
+      }
+
+      .content,
+      .video_box {
+        flex-basis: 200px;
+      }
+
+      .video_box {
+        margin-right: 0.5em;
+      }
+
+      .video_box img {
+        width: 100%;
+        border-radius: 0.5em;
+      }
+
+      .video iframe {
+        width: 100%;
+        border-radius: 0.5em;
+        height: 100%;
+        margin-bottom: 0.5em;
+      }
+
+      .article_content img {
+        width: 100%;
+        border-top-left-radius: 0.8em;
+        border-bottom-right-radius: 0.8em;
+      }
+
+      .img_box {
+        margin-right: 1em;
+        width: 100%;
+      }
+
+      .article_content section {
+        flex-basis: 175px;
+      }
+
+      .previous_videos,
+      .articles {
+        margin-top: 1.5em;
+      }
+
+      .article_head {
+        font-size: 1em;
+        letter-spacing: 1em;
+        margin: auto;
+        margin-top: 2em;
+        margin-bottom: 0.5em;
+      }
+
+      .comment_head {
+        font-size: 1em;
+        letter-spacing: 1em;
+        margin: auto;
+        margin-top: 4em;
+        margin-bottom: 1em;
+      }
+
+      .gallery_head {
+        font-size: 1em;
+        letter-spacing: 1em;
+        margin: auto;
+        margin-bottom: 2em;
+      }
+
+      .article_content {
+        display: flex;
+        margin-bottom: 1.5em;
+      }
+
+      .article_content h2 {
+        font-size: 1em;
+      }
+
+      .article_content p {
+        font-size: 0.9em;
+      }
+
+      /* .previous_videos .video_content
+            {
+                width: 370px;
+                margin: auto;
+                margin-bottom: 1.5em;
+            }
+
+            .previous_videos .video_content video
+            {
+                width: 100%;
+            } */
+
+      .article_content .content {
+        margin-top: 0.5em;
+      }
+
+      .article_content .content h2,
+      .article_content .content p {
+        margin-bottom: 0.2em;
+      }
+
+      .schedule_header {
+        font-size: 1em;
+        letter-spacing: 1em;
+        margin: auto;
+        margin-top: 2em;
+      }
+
+      .schedule_head {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1em;
+        padding: 0.3em;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+        border-radius: 2em;
+      }
+
+      .schedule_head section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0.7em;
+        border-radius: 1em;
+        margin-top: 1.2em;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .schedule_head section h3 {
+        font-size: 0.8em;
+      }
+
+      .schedule_head section h1 {
+        font-size: 0.9em;
+      }
+
+      .schedule_body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .body_1,
+      .body_2,
+      .body_3,
+      .body_4,
+      .body_5 {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .body_1 section,
+      .body_2 section,
+      .body_3 section,
+      .body_4 section,
+      .body_5 section {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.3em;
+        margin-bottom: 1em;
+      }
+
+      .body_1 section section,
+      .body_2 section section,
+      .body_3 section section,
+      .body_4 section section,
+      .body_5 section section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0;
+      }
+
+      .schedule_body h4 {
+        font-size: 0.5em;
+      }
+
+      .schedule_body h6 {
+        font-size: 0.5em;
+        padding-right: 3em;
+      }
+
+      .schedule_body h1 {
+        font-size: 0.6em;
+      }
+
+      .schedule_body p {
+        font-size: 0.5em;
+      }
+
+      .body_2,
+      .body_3,
+      .body_4,
+      .body_5 {
+        display: none;
+      }
+
+      .content h2:hover {
+        color: red;
+        cursor: pointer;
+      }
+
+      .video_content {
+        cursor: pointer;
+      }
+
+      .video_box {
+        position: relative;
+      }
+
+      .icon {
+        position: absolute;
+        left: 3.5em;
+        top: 1.2em;
+      }
+
+      .photos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1em;
+        place-items: center;
+      }
+
+      .photos img {
+        width: 95%;
+      }
+
+      .video_head {
+        margin-top: 3em;
+      }
+
+      #time {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6em;
+      }
+      #time .circle {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #time .circle svg {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        transform: rotate(270deg);
+      }
+      #time .circle svg circle {
+        width: 100%;
+        height: 100%;
+        fill: transparent;
+        stroke-width: 8;
+        stroke: #282828;
+        stroke-linecap: round;
+        transform: translate(5px, 5px);
+      }
+      #time .circle svg circle:nth-child(2) {
+        stroke: var(--clr);
+        stroke-dasharray: 440;
+        stroke-dashoffset: 440;
+      }
+      #time div {
+        position: absolute;
+        text-align: center;
+        font-weight: 500;
+        color: black;
+        font-size: 1.5em;
+      }
+      #time div span {
+        position: absolute;
+        transform: translateX(-50%) translateY(-10px);
+        font-size: 0.35em;
+        font-weight: 300;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      #time .dots {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        z-index: 1000;
+      }
+      #time .dots::before {
+        content: "";
+        position: absolute;
+        top: -3px;
+        width: 15px;
+        height: 15px;
+        background: var(--clr);
+        border-radius: 50%;
+        box-shadow: 0 0 20px var(--clr), 0 0 60px var(--clr);
+      }
+      .newEvent {
+        font-size: 3em;
+        font-weight: 500;
+        color: black;
+        text-align: center;
+        line-height: 1em;
+        display: none;
+      }
+      .newEvent span {
+        font-size: 0.5em;
+        font-weight: 300;
+      }
+      .showcase {
+        margin-top: 5em;
+        height: 40vh;
+      }
+
+      .sub_topic p {
+        font-size: 1.5em;
+        /* text-align: center; */
+        font-weight: bold;
+        color: var(--primary--text--color);
+      }
+
+      .topic p:nth-of-type(1) {
+        margin: 0.7em 0 0.7em 0;
+        font-weight: bold;
+        color: var(--primary--text--color);
+      }
+
+      .topic p:nth-of-type(2) {
+        font-weight: bold;
+        font-size: 2.7em;
+        letter-spacing: 1px;
+        color: var(--primary--color);
+      }
+
+      .showcase .date_time {
+        margin-top: 4em;
+        /* backdrop-filter: blur(50px); */
+        padding: 2em;
+        position: absolute;
+        bottom: 240px;
+        right: 230px;
+        /* border: 2px solid var(--primary--text--color); */
+        border-radius: 3em 0 3em 0;
+      }
+
+      .showcase .date_time section:nth-of-type(2) p {
+        margin: 1em 0em 1em 0em;
+        font-size: 0.9em;
+        font-weight: 500;
+        color: var(--primary--text--color);
+      }
+
+      .showcase .date_time section:nth-of-type(2) p:nth-of-type(1) {
+        color: black;
+      }
+
+      .showcase .date_time i {
+        margin-right: 1em;
+        font-size: 1.5em;
+      }
+
+      .showcase .date_time section:nth-of-type(2) {
+        border-top: 1px solid var(--primary--color);
+      }
+
+      .showcase .date_time section:nth-of-type(1) {
+        margin-bottom: 1em;
+      }
+
+      .showcase .date_time section:nth-of-type(1) p:nth-of-type(1) {
+        font-size: 0.9em;
+        margin-bottom: 0.3em;
+        color: var(--primary--text--color);
+      }
+
+      .showcase .date_time section:nth-of-type(1) p:nth-of-type(2) {
+        font-size: 1.2em;
+        font-weight: 500;
+        color: var(--primary--text--color);
+      }
+
+      @media (min-width: 400px) {
+        .head {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .head .video {
+          grid-column: 1 / 3;
+          grid-row: 1 / 2;
+        }
+
+        .head .previous_videos {
+          grid-column: 1 / 3;
+        }
+
+        .head .articles {
+          grid-column: 1 / 3;
+        }
+
+        .head .event_schedule {
+          grid-column: 1 / 3;
+        }
+
+        .head .photo_gallery {
+          grid-column: 1 / 3;
+        }
+
+        .head .comments {
+          grid-column: 1 / 3;
+        }
+
+        .previous_videos,
+        .articles {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .video_content .content h2 {
+          font-size: 0.5em;
+        }
+
+        .video_content .content p {
+          font-size: 0.4em;
+        }
+
+        .header {
+          grid-column: 1 / 3;
+        }
+
+        .article_head {
+          grid-column: 1 / 3;
+        }
+
+        .video_head {
+          margin-top: 0.5em;
+          grid-column: 1 / 3;
+        }
+
+        .article_content h2 {
+          font-size: 0.5em;
+        }
+
+        .article_content p {
+          font-size: 0.4em;
+        }
+
+        .video_content,
+        .article_content {
+          flex-direction: column;
+        }
+
+        .content,
+        .video_box {
+          flex-basis: 0px;
+        }
+
+        .article_content section {
+          flex-basis: 0px;
+        }
+
+        .video iframe {
+          height: 40vh;
+        }
+
+        .header {
+          margin-bottom: 2em;
+          margin-top: 1em;
+        }
+
+        .article_content h2 {
+          font-size: 1em;
+        }
+
+        .article_content p {
+          font-size: 0.9em;
+        }
+
+        .video_content .content h2 {
+          font-size: 1em;
+        }
+
+        .video_content .content p {
+          font-size: 0.9em;
+        }
+
+        .schedule_head section h3 {
+          font-size: 0.5em;
+        }
+
+        .schedule_head section h1 {
+          font-size: 0.6em;
+        }
+
+        .schedule_head {
+          margin-top: 0;
+        }
+
+        #unilag-logo {
+          display: none;
+        }
+        .date_time {
+          display: none;
+        }
+        .theme {
+          font-size: 1.2em;
+        }
+        #theme-p {
+          font-size: 1.8em;
+        }
+        .sub_topic p {
+          font-size: 1.5em;
+          margin-top: -1em;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .previous_videos,
+        .articles {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .header {
+          font-size: 1.5em;
+        }
+
+        .article_head {
+          grid-column: 1 / 5;
+        }
+
+        .video_head {
+          grid-column: 1 / 5;
+        }
+
+        .article_content h2 {
+          font-size: 1em;
+        }
+
+        .article_content p {
+          font-size: 0.9em;
+        }
+
+        .video_content .content h2 {
+          font-size: 1em;
+        }
+
+        .video_content .content p {
+          font-size: 0.9em;
+        }
+
+        .schedule_head section h3 {
+          font-size: 0.9em;
+        }
+
+        .schedule_head section h1 {
+          font-size: 1em;
+        }
+
+        .schedule_body h4 {
+          font-size: 1em;
+        }
+
+        .schedule_body h6 {
+          font-size: 1em;
+          padding-left: 0.8em;
+        }
+
+        .schedule_body h1 {
+          font-size: 1.2em;
+        }
+
+        .schedule_body p {
+          font-size: 1em;
+        }
+
+        .video iframe {
+          height: 70vh;
+        }
+
+        .photos {
+          grid-gap: 2em;
+        }
+        .theme {
+          font-size: 1.2em;
+        }
+        #theme-p {
+          font-size: 2.2em;
+        }
+        .sub_topic p {
+          font-size: 1.6em;
+          margin-top: -1em;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .main_container {
+          width: 80%;
+          margin: auto;
+        }
+
+        .head {
+          grid-template-columns: repeat(3, 1fr);
+          grid-gap: 20px;
+        }
+
+        .header {
+          margin-top: 1.5em;
+          margin-bottom: 1em;
+          font-size: 1.7em;
+          letter-spacing: 1.2em;
+        }
+
+        .head .event_schedule {
+          grid-column: 3 / 4;
+          grid-row: 1 / 2;
+        }
+
+        .head .comments {
+          grid-column: 3 / 5;
+          grid-row: 2 / 6;
+        }
+
+        .previous_videos,
+        .articles {
+          margin: 0;
+        }
+
+        .schedule_header {
+          margin-top: 1.8em;
+        }
+
+        .schedule_head {
+          margin: 0;
+          margin-bottom: 0.4em;
+        }
+
+        .video_content {
+          display: block;
+        }
+
+        .schedule_head section h3 {
+          font-size: 0.6em;
+        }
+
+        .schedule_head section h1 {
+          font-size: 0.7em;
+        }
+
+        .schedule_body h4 {
+          font-size: 0.6em;
+        }
+
+        .schedule_body h6 {
+          font-size: 0.7em;
+          padding-left: 0.8em;
+        }
+
+        .schedule_body h1 {
+          font-size: 0.8em;
+        }
+
+        .schedule_body p {
+          font-size: 0.7em;
+        }
+
+        .previous_videos {
+          margin-top: 2.7em;
+        }
+
+        .video {
+          margin-top: 2em;
+        }
+
+        .video_head {
+          margin-top: 1.8em;
+          margin-bottom: 1em;
+        }
+
+        .article_head {
+          margin-top: 3em;
+          margin-bottom: 1em;
+        }
+        .article_content {
+          margin-bottom: 1rem;
+        }
+
+        .body_1 section,
+        .body_2 section,
+        .body_3 section,
+        .body_4 section,
+        .body_5 section {
+          margin-bottom: 0.5em;
+        }
+
+        .video iframe {
+          height: 100%;
+        }
+
+        .photo_gallery {
+          margin-bottom: 5em;
+        }
+        .logo-img {
+          display: flex;
+          align-items: center;
+          width: 20%;
+        }
+        #unilag-logo {
+          display: flex;
+          width: 30%;
+          margin-right: 0.5em;
+        }
+        #arua-logo {
+          width: 50%;
+        }
+        .date_time {
+          display: flex;
+        }
+        .theme {
+          font-size: 1.4em;
+        }
+        #theme-p {
+          font-size: 2.65em;
+        }
+        .sub_topic p {
+          font-size: 1.8em;
+          margin: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="main_container">
+        <section class="header">
+          <section class="logo-img">
+            <img id="unilag-logo" src="Images/unilag_icon.png" alt="" />
+            <img id="arua-logo" src="Images/ARUA.jpeg" alt="" />
+          </section>
+          <p>ARUA 2023</p>
+          <a href="login.html"><button>Register</button></a>
+        </section>
+        <section class="showcase">
+          <section class="sub_topic">
+            <p>ARUA 2023 BIENNIAL INTERNATIONAL CONFERENCE</p>
+          </section>
+          <section class="topic">
+            <p class="theme">THEME:</p>
+            <p id="theme-p">
+              Reimagining The Future Of Higher Education In Africa
+            </p>
+          </section>
+          <section class="related_topics"></section>
+          <section class="date_time">
+            <section>
+              <p style="font-weight: 700; color: black">
+                University Of Lagos, Nigeria
+              </p>
+              <p>15<sup>th</sup> - 17<sup>th</sup> November, 2023</p>
+            </section>
+          </section>
+        </section>
+        <section class="head">
+          <section class="video">
+            <iframe
+              id="video-box"
+              width="964"
+              height="542"
+              src="https://www.youtube.com/embed/gAtj4jG3n8g"
+              title="ARUA Strategic Plan Launch Documentary"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+            <h2>ARUA 2023.</h2>
+          </section>
+          <section class="previous_videos">
+            <section class="video_head">PLAYLISTS</section>
+            <section id="box-1" class="video_content">
+              <section class="video_box">
+                <img
+                  style="width: 30%"
+                  class="icon"
+                  src="Images/Youtube_Icon.png"
+                  alt=""
+                />
+                <img src="Images/pic1.jpg" alt="" />
+              </section>
+              <section class="content">
+                <h2>ARUA Strategic Plan Event Recording.</h2>
+                <p>Red Bull Surfing</p>
+                <p>9 months ago</p>
+              </section>
+            </section>
+
+            <section id="box-2" class="video_content">
+              <section class="video_box">
+                <img
+                  style="width: 30%"
+                  class="icon"
+                  src="Images/Youtube_Icon.png"
+                  alt=""
+                />
+                <img src="Images/pic2.jpg" alt="" />
+              </section>
+              <section class="content">
+                <h2>ARUA Plan Launch Documentary.</h2>
+                <p>KHON2 News</p>
+                <p>10 months ago</p>
+              </section>
+            </section>
+
+            <section id="box-3" class="video_content">
+              <section class="video_box">
+                <img
+                  style="width: 30%"
+                  class="icon"
+                  src="Images/Youtube_Icon.png"
+                  alt=""
+                />
+                <img src="Images/pic3.jpg" alt="" />
+              </section>
+              <section class="content">
+                <h2>ARUA-Guild Info session on ARISE Pilot Project.</h2>
+                <p>Lorem, ipsum.</p>
+                <p>5 months ago</p>
+              </section>
+            </section>
+
+            <section id="box-4" class="video_content">
+              <section class="video_box">
+                <img
+                  style="width: 30%"
+                  class="icon"
+                  src="Images/Youtube_Icon.png"
+                  alt=""
+                />
+                <img src="Images/pic6.jpg" alt="" />
+              </section>
+              <section class="content">
+                <h2>Prof. Ernest Aryeetey | Roundtable Discussion.</h2>
+                <p>Lorem, ipsum.</p>
+                <p>5 months ago</p>
+              </section>
+            </section>
+          </section>
+
+          <section class="articles">
+            <section class="article_head">ARTICLES</section>
+            <section class="article_content">
+              <section class="img_box">
+                <img src="Images/pic6.jpg" alt="" />
+              </section>
+              <section class="content">
+                <a
+                  target="blank"
+                  style="text-decoration: none; color: black"
+                  href="https://unilag.edu.ng/?p=24001"
+                  ><h2>Prof. Ernest Aryeetey | Roundtable Presentation</h2></a
+                >
+                <p>Red Bull Surfing</p>
+                <p>9 months ago</p>
+              </section>
+            </section>
+
+            <section class="article_content">
+              <section class="img_box">
+                <img src="Images/pic3.jpg" alt="" />
+              </section>
+              <section class="content">
+                <a
+                  target="blank"
+                  style="text-decoration: none; color: black"
+                  href="https://unilag.edu.ng/?p=24260"
+                  ><h2>ARUA-Guild Info session on ARISE Pilot Project.</h2></a
+                >
+                <p>Red Bull Surfing</p>
+                <p>9 months ago</p>
+              </section>
+            </section>
+
+            <section class="article_content">
+              <section class="img_box">
+                <img src="Images/pic1.jpg" alt="" />
+              </section>
+              <section class="content">
+                <a
+                  target="blank"
+                  style="text-decoration: none; color: black"
+                  href="https://unilag.edu.ng/?p=24234"
+                  ><h2>ARUA Plan Launch Recording.</h2></a
+                >
+                <p>Red Bull Surfing</p>
+                <p>9 months ago</p>
+              </section>
+            </section>
+
+            <section class="article_content">
+              <section class="img_box">
+                <img src="Images/pic2.jpg" alt="" />
+              </section>
+              <section class="content">
+                <a
+                  target="blank"
+                  style="text-decoration: none; color: black"
+                  href="https://unilag.edu.ng/?p=24185"
+                  ><h2>ARUA Strategic Launch Documentary.</h2></a
+                >
+                <p>Red Bull Surfing</p>
+                <p>9 months ago</p>
+              </section>
+            </section>
+          </section>
+          <section class="event_schedule">
+            <section class="schedule_header">UP NEXT</section>
+            <section class="schedule_head">
+              <section
+                style="background: rgb(231, 239, 247)"
+                class="day_1"
+                id="day_1"
+              >
+                <h3>FIRST DAY</h3>
+                <h1>15 November 2023</h1>
+              </section>
+              <section class="day_2" id="day_2">
+                <h3>SECOND DAY</h3>
+                <h1>16 November 2023</h1>
+              </section>
+              <section class="day_3" id="day_3">
+                <h3>THIRD DAY</h3>
+                <h1>17 November 2023</h1>
+              </section>
+            </section>
+            <section class="schedule_body">
+              <section class="body_1" id="body_1">
+                <section class="event_1">
+                  <h4>09:00 - 11:00</h4>
+                  <h6>1</h6>
+                  <section>
+                    <h1>Registration</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_2">
+                  <h4>11:00 - 12:00</h4>
+                  <h6>2</h6>
+                  <section>
+                    <h1>Introduction of the Event</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_3">
+                  <h4>12:00 - 14:00</h4>
+                  <h6>3</h6>
+                  <section>
+                    <h1>Speaker Speech</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_4">
+                  <h4>14:00 - 15:00</h4>
+                  <h6>4</h6>
+                  <section>
+                    <h1>Lunch Break</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_5">
+                  <h4>15:00 - 17:00</h4>
+                  <h6>5</h6>
+                  <section>
+                    <h1>Final Speeches</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+              </section>
+              <section class="body_2" id="body_2">
+                <section class="event_1">
+                  <h4>09:00 - 11:00</h4>
+                  <h6>1</h6>
+                  <section>
+                    <h1>Opening Prayer</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_2">
+                  <h4>11:00 - 12:00</h4>
+                  <h6>2</h6>
+                  <section>
+                    <h1>Speaker Speech</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_3">
+                  <h4>12:00 - 14:00</h4>
+                  <h6>3</h6>
+                  <section>
+                    <h1>Introduction of the Event</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_4">
+                  <h4>14:00 - 15:00</h4>
+                  <h6>4</h6>
+                  <section>
+                    <h1>Final Speeches</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_5">
+                  <h4>15:00 - 17:00</h4>
+                  <h6>5</h6>
+                  <section>
+                    <h1>Lunch Break</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+              </section>
+              <section class="body_3" id="body_3">
+                <section class="event_1">
+                  <h4>09:00 - 11:00</h4>
+                  <h6>1</h6>
+                  <section>
+                    <h1>Final Speeches</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_2">
+                  <h4>11:00 - 12:00</h4>
+                  <h6>2</h6>
+                  <section>
+                    <h1>Introduction of the Event</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_3">
+                  <h4>12:00 - 14:00</h4>
+                  <h6>3</h6>
+                  <section>
+                    <h1>Lunch Break</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_4">
+                  <h4>14:00 - 15:00</h4>
+                  <h6>4</h6>
+                  <section>
+                    <h1>Speaker Speech</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_5">
+                  <h4>15:00 - 17:00</h4>
+                  <h6>5</h6>
+                  <section>
+                    <h1>Final Speeches</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+              </section>
+              <section class="body_4" id="body_4">
+                <section class="event_1">
+                  <h4>09:00 - 11:00</h4>
+                  <h6>1</h6>
+                  <section>
+                    <h1>Speaker Speech</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_2">
+                  <h4>11:00 - 12:00</h4>
+                  <h6>2</h6>
+                  <section>
+                    <h1>Introduction of the Event</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_3">
+                  <h4>12:00 - 14:00</h4>
+                  <h6>3</h6>
+                  <section>
+                    <h1>Lunch Break</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_4">
+                  <h4>14:00 - 15:00</h4>
+                  <h6>4</h6>
+                  <section>
+                    <h1>Registration</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_5">
+                  <h4>15:00 - 17:00</h4>
+                  <h6>5</h6>
+                  <section>
+                    <h1>Final Speeches</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+              </section>
+              <section class="body_5" id="body_5">
+                <section class="event_1">
+                  <h4>09:00 - 11:00</h4>
+                  <h6>1</h6>
+                  <section>
+                    <h1>Registration</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_2">
+                  <h4>11:00 - 12:00</h4>
+                  <h6>2</h6>
+                  <section>
+                    <h1>Lunch Break</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_3">
+                  <h4>12:00 - 14:00</h4>
+                  <h6>3</h6>
+                  <section>
+                    <h1>Speaker Speech</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_4">
+                  <h4>14:00 - 15:00</h4>
+                  <h6>4</h6>
+                  <section>
+                    <h1>Introduction of the Event</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+                <section class="event_5">
+                  <h4>15:00 - 17:00</h4>
+                  <h6>5</h6>
+                  <section>
+                    <h1>Final Speeches</h1>
+                    <p>
+                      Register your personal data in customer service and take
+                      coffee before entering to the room.
+                    </p>
+                  </section>
+                </section>
+              </section>
+            </section>
+          </section>
+          <section class="photo_gallery">
+            <section class="gallery_head">GALLERY</section>
+            <section class="photos">
+              <img src="Images/Photo_3.jpg" alt="" />
+              <img src="Images/Photo_1.jpg" alt="" />
+              <img src="Images/Photo_4.jpg" alt="" />
+              <img src="Images/Photo_6.jpg" alt="" />
+            </section>
+          </section>
+          <section class="comments" id="time">
+            <section class="comment_head">COUNTDOWN</section>
+            <div class="circle circle1" style="--clr: silver">
+              <div class="dots day_dot"></div>
+              <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="dd"></circle>
+              </svg>
+              <div id="days">00 <br /><span>Days</span></div>
+            </div>
+
+            <div class="circle circle2" style="--clr: #ff2972">
+              <div class="dots hr_dot"></div>
+              <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="hh"></circle>
+              </svg>
+              <div id="hours">00 <br /><span>Hours</span></div>
+            </div>
+
+            <div class="circle circle3" style="--clr: #fee800">
+              <div class="dots min_dot"></div>
+              <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="mm"></circle>
+              </svg>
+              <div id="minutes">00 <br /><span>Minutes</span></div>
+            </div>
+
+            <div class="circle circle4" style="--clr: #04fc43">
+              <div class="dots sec_dot"></div>
+              <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="ss"></circle>
+              </svg>
+              <div id="seconds">00 <br /><span>Seconds</span></div>
+            </div>
+
+            <h2 class="newEvent">
+              19th of November 2023<br /><span>Event has Begun</span>
+            </h2>
+            <!-- <div
+              class="sk-ww-twitter-hashtag-feed"
+              data-embed-id="179873"
+            ></div>
+            <script
+              src="https://widgets.sociablekit.com/twitter-hashtag-feed/widget.js"
+              async
+              defer
+            ></script> -->
+          </section>
+        </section>
+      </section>
+    </main>
+  </body>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+    integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"
+    integrity="sha512-AWDq5V1aZW5392Wm63Y2qUKK5MuksXgQVx4YMx5LqLOk4Tnzu2aSNyd/Uqwil/kIm9pikPDk6B626B7H3vq1GQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+  <script>
+    var day1 = document.getElementById("day_1");
+    var day2 = document.getElementById("day_2");
+    var day3 = document.getElementById("day_3");
+    var day4 = document.getElementById("day_4");
+    var day5 = document.getElementById("day_5");
+    var body1 = document.getElementById("body_1");
+    var body2 = document.getElementById("body_2");
+    var body3 = document.getElementById("body_3");
+    var body4 = document.getElementById("body_4");
+    var body5 = document.getElementById("body_5");
+    var box1 = document.getElementById("box-1");
+    var box2 = document.getElementById("box-2");
+    var box3 = document.getElementById("box-3");
+    var box4 = document.getElementById("box-4");
+    var videoBox = document.getElementById("video-box");
+
+    var days = document.getElementById("days");
+    var hours = document.getElementById("hours");
+    var minutes = document.getElementById("minutes");
+    var seconds = document.getElementById("seconds");
+
+    var dd = document.getElementById("dd");
+    var hh = document.getElementById("hh");
+    var mm = document.getElementById("mm");
+    var ss = document.getElementById("ss");
+
+    var day_dot = document.querySelector(".day_dot");
+    var hr_dot = document.querySelector(".hr_dot");
+    var min_dot = document.querySelector(".min_dot");
+    var sec_dot = document.querySelector(".sec_dot");
+
+    var endDate = "11/19/2023 00:00:00";
+
+    var x = setInterval(function () {
+      var now = new Date(endDate).getTime();
+      var countDown = new Date().getTime();
+      var distance = now - countDown;
+      var d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var s = Math.floor((distance % (1000 * 60)) / 1000);
+
+      days.innerHTML = d + "<br><span>Days<span>";
+      hours.innerHTML = h + "<br><span>Hour<span>";
+      minutes.innerHTML = m + "<br><span>Minutes<span>";
+      seconds.innerHTML = s + "<br><span>Seconds<span>";
+
+      dd.style.strokeDashoffset = 440 - (440 * d) / 365;
+      hh.style.strokeDashoffset = 440 - (440 * h) / 24;
+      mm.style.strokeDashoffset = 440 - (440 * m) / 60;
+      ss.style.strokeDashoffset = 440 - (440 * s) / 60;
+
+      day_dot.style.transform = `rotateZ(${d * 0.986}deg)`;
+      // 360deg / 365dys = 0.986
+      hr_dot.style.transform = `rotateZ(${h * 15}deg)`;
+      // 360deg / 24hrs = 15
+      min_dot.style.transform = `rotateZ(${m * 6}deg)`;
+      // 360deg / 60minutes = 6
+      sec_dot.style.transform = `rotateZ(${s * 6}deg)`;
+      // 360deg / 60seconds = 6
+
+      if (distance < 0) {
+        clearInterval(x);
+        document.querySelector(".circle1").style.display = "none";
+        document.querySelector(".circle2").style.display = "none";
+        document.querySelector(".circle3").style.display = "none";
+        document.querySelector(".circle4").style.display = "none";
+        document.querySelector(".newEvent").style.display = "block";
+      }
+    });
+
+    function day1ClickHandler() {
+      gsap.fromTo(
+        "#body_1",
+        { opacity: 0, x: 20, ease: Expo.easeInOut, delay: 0.2 },
+        { opacity: 1, y: 0, duration: 1 }
+      );
+      gsap.fromTo(
+        "#day_1",
+        { opacity: 0, z: 20 },
+        { opacity: 1, y: 0, duration: 1 }
+      );
+      body1.style.display = "flex";
+      body2.style.display = "none";
+      body3.style.display = "none";
+      body4.style.display = "none";
+      body5.style.display = "none";
+      day1.style.background = "rgb(231, 239, 247)";
+      day2.style.background = "none";
+      day3.style.background = "none";
+      day4.style.background = "none";
+      day5.style.background = "none";
+    }
+    function day2ClickHandler() {
+      gsap.fromTo(
+        "#body_2",
+        { opacity: 0, x: 20, ease: Expo.easeInOut, delay: 0.2 },
+        { opacity: 1, y: 0, duration: 1 }
+      );
+      gsap.fromTo(
+        "#day_2",
+        { opacity: 0, z: 20 },
+        { opacity: 1, y: 0, duration: 1 }
+      );
+      body2.style.display = "flex";
+      body1.style.display = "none";
+      body3.style.display = "none";
+      body4.style.display = "none";
+      body5.style.display = "none";
+      day2.style.background = "rgb(231, 239, 247)";
+      day1.style.background = "none";
+      day3.style.background = "none";
+      day4.style.background = "none";
+      day5.style.background = "none";
+    }
+    function day3ClickHandler() {
+      gsap.fromTo(
+        "#body_3",
+        { opacity: 0, x: 20, ease: Expo.easeInOut, delay: 0.2 },
+        { opacity: 1, y: 0, duration: 1 }
+      );
+      gsap.fromTo(
+        "#day_3",
+        { opacity: 0, z: 20 },
+        { opacity: 1, y: 0, duration: 1 }
+      );
+      body3.style.display = "flex";
+      body1.style.display = "none";
+      body2.style.display = "none";
+      body4.style.display = "none";
+      body5.style.display = "none";
+      day3.style.background = "rgb(231, 239, 247)";
+      day1.style.background = "none";
+      day2.style.background = "none";
+      day4.style.background = "none";
+      day5.style.background = "none";
+    }
+    function day4ClickHandler() {
+      gsap.fromTo(
+        "#body_4",
+        { opacity: 0, x: 20, ease: Expo.easeInOut, delay: 0.2 },
+        { opacity: 1, y: 0, duration: 1 }
+      );
+      gsap.fromTo(
+        "#day_4",
+        { opacity: 0, z: 20 },
+        { opacity: 1, y: 0, duration: 1 }
+      );
+      body4.style.display = "flex";
+      body1.style.display = "none";
+      body2.style.display = "none";
+      body3.style.display = "none";
+      body5.style.display = "none";
+      day4.style.background = "rgb(231, 239, 247)";
+      day1.style.background = "none";
+      day2.style.background = "none";
+      day3.style.background = "none";
+      day5.style.background = "none";
+    }
+    function day5ClickHandler() {
+      gsap.fromTo(
+        "#body_5",
+        { opacity: 0, x: 20, ease: Expo.easeInOut, delay: 0.2 },
+        { opacity: 1, y: 0, duration: 1 }
+      );
+      gsap.fromTo(
+        "#day_5",
+        { opacity: 0, z: 20 },
+        { opacity: 1, y: 0, duration: 1 }
+      );
+      body5.style.display = "flex";
+      body1.style.display = "none";
+      body2.style.display = "none";
+      body3.style.display = "none";
+      body4.style.display = "none";
+      day5.style.background = "rgb(231, 239, 247)";
+      day1.style.background = "none";
+      day2.style.background = "none";
+      day3.style.background = "none";
+      day4.style.background = "none";
+    }
+
+    function box1ClickHandler() {
+      videoBox.src = `https://www.youtube.com/embed/T2oIae8IaXQ`;
+    }
+    function box2ClickHandler() {
+      videoBox.src = `https://www.youtube.com/embed/gAtj4jG3n8g`;
+    }
+    function box3ClickHandler() {
+      videoBox.src = `https://www.youtube.com/embed/UcFeEhiw3v8`;
+    }
+    function box4ClickHandler() {
+      videoBox.src = `https://www.youtube.com/embed/DGfa7ZNZGJU`;
+    }
+
+    day1.addEventListener("click", day1ClickHandler);
+    day2.addEventListener("click", day2ClickHandler);
+    day3.addEventListener("click", day3ClickHandler);
+    day4.addEventListener("click", day4ClickHandler);
+    day5.addEventListener("click", day5ClickHandler);
+    box1.addEventListener("click", box1ClickHandler);
+    box2.addEventListener("click", box2ClickHandler);
+    box3.addEventListener("click", box3ClickHandler);
+    box4.addEventListener("click", box4ClickHandler);
+  </script>
+</html>
